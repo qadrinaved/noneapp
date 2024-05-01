@@ -14,7 +14,7 @@ console.log(apiKey);
 
 
 let apikey = '1efb072b1eb63aa29d18a2ce598598da';
-let pass = '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';
+let pass = '';
 let endpoint = 'orders';
 
 let options = {
