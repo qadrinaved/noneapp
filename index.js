@@ -9,7 +9,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/display", display);
-app.delete("/products", dgetData);
+app.get("/products", dgetData);
 
 app.listen(3000, () => {
   console.log("Server running on port 3000");
