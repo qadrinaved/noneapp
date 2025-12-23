@@ -18,7 +18,7 @@ let options = {
   }
 };
 
-app.get("/display", (req, resp) => {
+app.get("/products", (req, resp) => {
     request(options, function (error, response) {
         if (error) throw new Error(error);
         resp.send(response.body);
