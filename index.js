@@ -1,29 +1,16 @@
-const request = require('request');
-const express = require('express');
-const cors = require('cors');
-const app = express(); 
+const express = require("express");
+const app = express();
 
-app.use(cors());
-app.set('view engine', 'ejs');
+const display = require("./display");
+const deleteData = require("./delete");
 
-let apikey = '1efb072b1eb63aa29d18a2ce598598da';
-let pass = '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';
-let endpoint = 'orders';
-
-let options = {
-  'method': 'GET',
-  'url': `https://${apikey}:${pass}@silvertesting.myshopify.com/admin/api/2022-07/${endpoint}.json`,
-  'headers': {
-    'Content-Type': 'application/json'
-  }
-};
-
-app.get("/display", (req, resp) => {
-    request(options, function (error, response) {
-        if (error) throw new Error(error);
-        resp.send(response.body);
-        console.log(response.body); 
+app.get("/", (req, res) => {
+  res.send("Overview page");
 });
+
+app.get("/display", display);
+app.delete("/delete", deleteData);
+
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
 });
-  
-app.listen(4400);     
